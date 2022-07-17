@@ -1,0 +1,129 @@
+	
+Maven & Gradle
+---------------
+Build Tools
+
+Maven -  is a build automation tool, primarily build for Java projects
+		- Project object Model
+		- Hosted and developed by Apache Software initially known as Jakarta project.
+		
+Gradle -  a build automation tool for multi-language software development
+		- Supported language include Java,C,C++ and even javascript
+		- It introduces java and Grrovy based DSL (Domain Specifoc Language) for declaring the project configuration
+		- It is distributed as open-source software under the Apache License 2.0
+		- It was build as to complete the shortcomings of 
+
+
+Gradle was sort of combination of Maven and Apache ANT
+- Customizable as compared to Maven
+- Gradle avoids the work by tracking input and output tasks and only run tasks that must be changed
+- Maven does not use the build cache, and this it is slower.
+
+
+
+https://www.youtube.com/watch?v=Wa0GQwWwzJE&ab_channel=JavaTechie
+
+Pagination:  PageRequest.of(oofset, pageSize) -  returns the page of product rather than list of objects.
+			- withSOrt
+			- Sorting with Multiple Column
+Sorting:
+Searching:
+
+
+------------------
+Elastic Searching
+------------------
+1. What is ealastic Search?
+	- Realtime distributed and analytics engine.
+	- Open source developed in java
+	- based on lucene engine on top of which we have a rest interface.
+	- supports full-text search i.e. completely document based instead of tables and schemas
+	- Used for Single Page Applications
+	
+2. Why?
+	- Query
+		- lets you perform and combine many types of searches like structured , unstructured, geo, meric etc.
+		- anyway you want  -  
+	
+	- Analyze
+		- lets you understand billions of logs lines easily
+		- provides aggregations which help you zoom out to explore trends and patterns in your data.
+			- by date
+			- geo locations
+		
+	- Scalabilty - multiple nodes
+	- Really fast
+	- multiLingual
+	- Document Oriented
+	- Autocompletion & Instant Search
+	- Schema Free
+
+Localhost:9200
+
+3. Basic Concepts
+	1. Near Real Time
+		- near realtime search platform that is there is a slight from the time you index a document until the time it becomes searchable. When you upload document it becomes available
+	2. Cluster
+		- A cluster is a collection of one of more nodes that together holds the entire data. It provides federated indexing and search capabilities across all nodes and is identified by a unique name(by default its elasticsearch).
+	3. Node
+		- A node is a single server which is a part of cluster, stores data and participates in the clusters indexing and search capabilities.
+	4. Index
+		- An index is a collection of documents with similar characterstics and is identified by a name. This name is used to refer to the index while performing indexing, search, update and delete operations against the documents in it.
+	5. Type
+		- A type is a logical category/partition of an index whose semantics is completely. It is defined for documents that have a set of common fields. You can define more than one type in your index.
+	6. Documnet
+		- A dcoument is a basic unit of information which can be indexed. It is expressed in Json which is ub iquitious ingternet data interchange format.
+	7. Shards
+		- ElasticSearch provides the ability to subdivide the index into multiple pieces called shards. Each shard is in itslef a fully-functional and independent index that can be hosted on any node within the cluster.
+	8. Replicas
+		- ElasticSearch allows you to make one or more copies of your index's shards which are called replica shards or replica.
+
+API Convention
+---------------
+An ElasticSearch Rest APIs are accessed using JSON over HTTP. ElasticSearch uses following conventions throughout the REST API:
+
+1. Multiple Indices
+	- Most APIs support execution across multiple indices
+	- Different notations are used to perform operations in multiple indices like:
+		1. comma seperated
+			demo1, demo2,demo3
+		2. WildCard notations(*,+,-)
+			demo1*, de*o2, +demo3, -demo3
+			_all keytword for all indices
+		3. URL Query String Parameters
+			ignore_unavailable 
+			allow_no_indices
+			expand_wildcards
+			
+2. Date Math Supported
+	- Elastic Search allow you to search indices according to date and time, you need to specify date and time in a specific format.
+	- <static_name{date_math_expr{date_format | time_zone}}>
+3. Common Options
+	- Pretty Result
+4. URL based Access Control
+	- Users can also use a proxy with URL-based access control to secure access to the elasticsearch indices
+	- User has an option of specifying an index in URL and on each individual request within the request body for some request like:
+		- multi-search
+		- multi-get
+		- bulk
+	
+Elastic Search APIs
+-------------------
+1. Document APIs
+	- perform operation at document level
+	- Single Document API
+		- Index API
+		- Get API
+		- Update API
+		- Delete API
+	- Multi-Document API
+		- Multi GET API
+		- Bulk API
+		- Delete By Query API
+		- Update By Query API
+		- Reindex API
+		
+2. Search APIs
+3. Aggregation
+4. Index APIs
+5. Cluster APIs
